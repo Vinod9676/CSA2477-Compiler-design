@@ -1,0 +1,22 @@
+%{
+#include<ctype.h>
+%}
+
+DIGIT [0-9]
+NON_DIGIT [^0-9]
+
+%%
+{DIGIT} {
+  printf("%c is a digit\n", yytext[0]);
+}
+
+{NON_DIGIT} {
+  printf("%c is not a digit\n", yytext[0]);
+}
+
+%%
+
+int main() {
+  yylex();
+  return 0;
+}
